@@ -1,0 +1,16 @@
+<h1><%=@restaurant.name%></h1>
+<p><%=@restaurant.address%></p>
+<p><%=@restaurant.category%></p>
+
+<h2>Reviews</h2>
+<ul class="list-group">
+<% @restaurant.reviews.each do |review| %>
+<li class="list-group-item"><%= review.content%> <i class="fas fa-star"></i>  <%= review.rating %></li>
+</ul>
+<%end%>
+
+<%= render "form", {restaurant: @restaurant, review: @review}  %>
+
+<div class="container mt-3">
+<%= link_to "Back to List", restaurants_path, class: "btn btn-primary" %>
+</div>
